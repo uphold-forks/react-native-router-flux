@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import NavigationExperimental from 'react-native-experimental-navigation';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import * as Animations from './Animations';
 
 import TabBar from './TabBar';
 import NavBar from './NavBar';
@@ -127,13 +128,13 @@ export default class DefaultRenderer extends Component {
   static chooseInterpolator(direction, props) {
     switch (direction) {
       case 'vertical':
-        return NavigationCardStackStyleInterpolator.forVertical(props);
+        return Animations.forVertical(props);
       case 'fade':
         return fadeInScene(props);
       case 'leftToRight':
         return leftToRight(props);
       default:
-        return NavigationCardStackStyleInterpolator.forHorizontal(props);
+        return Animations.forHorizontal(props);
     }
   }
 
